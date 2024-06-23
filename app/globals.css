@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+details > summary {
+    list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+    display: none; /* Specifically targets and hides the default arrow marker in WebKit browsers */
+}
