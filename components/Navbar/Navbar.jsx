@@ -11,7 +11,6 @@ import Button from "@/components/Button"
 import { getReactIcon } from "@/lib/utils"
 
 export default function Navbar({ ...props }) {
-    if (!props) return null
     const pathname = usePathname()
 
     const {
@@ -24,6 +23,8 @@ export default function Navbar({ ...props }) {
         navLinks,
         socialLinks,
     } = props
+
+    if (!props) return null
 
     return (
         <>
