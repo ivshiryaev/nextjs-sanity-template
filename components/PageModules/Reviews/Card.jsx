@@ -11,8 +11,6 @@ export default function Card({ ...props }) {
 
     const { eyebrow, title, bodyText, button, image, rating } = props
 
-    console.log(rating)
-
     return (
         <div
             className="
