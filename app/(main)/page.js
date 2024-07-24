@@ -8,12 +8,16 @@ import SwitchDraftMode from "@/components/SwitchDraftMode"
 
 export async function generateStaticParams() {
     const data = await sanityFetch({ query: PAGE_QUERY({ slug: "home" }) })
-
     return data
 }
 
 export async function generateMetadata() {
     const data = await sanityFetch({ query: PAGE_QUERY({ slug: "home" }) })
+
+    if (!data) {
+        console.error("No data found for home page")
+        return null
+    }
 
     const { seo } = data
 
@@ -57,7 +61,10 @@ export async function generateMetadata() {
 export default async function Home() {
     const data = await sanityFetch({ query: PAGE_QUERY({ slug: "home" }) })
 
-    if (!data) return null
+    if (!data) {
+        console.error("No data found for home page")
+        return null
+    }
 
     return (
         <>

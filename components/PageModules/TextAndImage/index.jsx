@@ -1,17 +1,17 @@
-import SanityImage from "@/components/SanityImage"
-import Section from "@/components/Section"
-import Text from "@/components/Text"
-import Link from "next/link"
-import Button from "@/components/Button"
+import SanityImage from "@/components/SanityImage";
+import Section from "@/components/Section";
+import Text from "@/components/Text";
+import Link from "next/link";
+import Button from "@/components/Button";
 
-import { getHeadingTagBasedOnIndex } from "@/lib/utils"
+import { getHeadingTagBasedOnIndex } from "@/lib/utils";
 
 export default function TextAndImage({ idx, ...module }) {
-    if (!module) return null
+    if (!module) return null;
 
-    const { eyebrow, title, bodyText, button, image, isReversed } = module
+    const { eyebrow, title, bodyText, button, image, isReversed } = module;
 
-    const headingTag = getHeadingTagBasedOnIndex(idx)
+    const headingTag = getHeadingTagBasedOnIndex(idx);
 
     return (
         <Section
@@ -27,7 +27,7 @@ export default function TextAndImage({ idx, ...module }) {
                 lg:gap-12
             `}
         >
-            <div className="relative flex flex-col gap-4 flex-1 basis-[40%]">
+            <div className="relative flex flex-col gap-4 flex-1 basis-[50%]">
                 {eyebrow && <Text renderAs="eyebrow">{eyebrow}</Text>}
                 {title && (
                     <Text headingTag={headingTag} renderAs="title">
@@ -43,7 +43,7 @@ export default function TextAndImage({ idx, ...module }) {
                     </Button>
                 )}
             </div>
-            <div className="relative flex-1 basis-[60%]">
+            <div className="relative flex-1 basis-[50%]">
                 {image?.mobileImage && (
                     <SanityImage
                         className="md:hidden"
@@ -58,5 +58,5 @@ export default function TextAndImage({ idx, ...module }) {
                 )}
             </div>
         </Section>
-    )
+    );
 }

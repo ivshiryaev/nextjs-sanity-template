@@ -7,7 +7,7 @@ export default function MainLayout({ children }) {
         <>
             <MobileMenu />
             <Navbar />
-            <main className="min-w-screen flex flex-col gap-4">{children}</main>
+            <main className="min-w-screen min-h-svh flex flex-col gap-4">{children}</main>
             <Footer />
         </>
     )

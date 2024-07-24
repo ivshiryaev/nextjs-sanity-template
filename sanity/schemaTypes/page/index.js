@@ -59,5 +59,12 @@ export default defineType({
             title: "title",
             subtitle: "slug.current",
         },
+        prepare: ({ title, subtitle }) => {
+            const convertedSubtitle = subtitle ? `/${subtitle}` : ""
+            return {
+                title,
+                subtitle: convertedSubtitle,
+            }
+        },
     },
 })

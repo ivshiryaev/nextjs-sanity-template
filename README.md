@@ -9,7 +9,10 @@ Sanity uses Google for authentication
 
 # Local development
 Use node > v20 to develop locally<br/>
-**DO NOT USE** next.js turbopack ( --turbo ) sanity won't be rendered. Spent 1:20 hours trying to find that issue
+**DO NOT USE** next.js turbopack ( --turbo ) sanity might not be rendered on Windows.<br/><br/>
+```npx install-peerdeps --yarn next-sanity```<br/>
+To install all the peer deps for sanity
+
 
 # Folder structure
 /components - all the reusable components such as buttons, typography, sections etc..<br/>
