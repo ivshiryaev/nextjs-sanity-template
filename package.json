@@ -14,6 +14,8 @@
     "@sanity/preview-url-secret": "^1.6.17",
     "@sanity/react-loader": "^1.10.3",
     "@sanity/vision": "^3.47.1",
+    "@splinetool/react-spline": "^4.0.0",
+    "@splinetool/runtime": "^1.9.13",
     "framer-motion": "^11.2.11",
     "next": "14.2.4",
     "next-sanity": "^9.4.2",

@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge"
 
-export default function Section({ useContainer, children, className }) {
+export default function Section({ useContainer, children, className, ...props }) {
     return (
         <section
             className={twMerge(
@@ -15,6 +15,7 @@ export default function Section({ useContainer, children, className }) {
                 useContainer ? "container mx-auto" : null,
                 className ? className : null
             )}
+            {...props}
         >
             {children}
         </section>

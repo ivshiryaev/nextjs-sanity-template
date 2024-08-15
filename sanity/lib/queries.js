@@ -1,18 +1,23 @@
 import { groq } from "next-sanity"
 
 export const PAGE_QUERY = (params) => {
-    return groq`*[_type == "page" && slug.current == "${params.slug}"][0]{
-        title,
-        modules,
-        slug{current},
-        seo
-    }`
+    return groq`
+        *[_type == "page" && slug.current == "${params.slug}"][0]{
+            title,
+            modules,
+            slug{current},
+            seo
+        }
+    `
 }
-export const PAGES_QUERY = groq`*[_type == "page"]{
-    defined(slug)=>{
-        'slug': slug.current
-    }
-}`
+export const PAGES_QUERY = () => {
+    return groq`*[_type == "page"]{
+            defined(slug)=>{
+                'slug': slug.current
+            }
+        }
+    `
+}
 
 export const WEBSITE_SETTINGS_QUERY = groq`*[_type == "websiteSettings"][0]{
     brandName,

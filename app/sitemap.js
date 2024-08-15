@@ -1,5 +1,3 @@
-const url = process.env.VERCEL_URL || "localhost:3000"
-
 import { sanityFetch } from "@/sanity/lib/fetch"
 import { PAGES_QUERY } from "@/sanity/lib/queries"
 

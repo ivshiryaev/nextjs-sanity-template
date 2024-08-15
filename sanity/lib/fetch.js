@@ -13,18 +13,17 @@ const revalidateTimeInSeconds = 180 // 3 minutes
  * When using the "published" perspective then time-based revalidation is used, set to match the time-to-live on Sanity's API CDN (revalidateTimeInSeconds)
  * When using the "previewDrafts" perspective then the data is fetched from the live API and isn't cached, it will also fetch draft content that isn't published yet.
  */
-export async function sanityFetch({
-    query,
-    params = {},
-    perspective = draftMode().isEnabled ? "previewDrafts" : "published",
+export async function sanityFetch({ query, params = {}, rawPerspective }) {
     /**
      * Stega embedded Content Source Maps are used by Visual Editing by both the Sanity Presentation Tool and Vercel Visual Editing.
      * The Sanity Presentation Tool will enable Draft Mode when loading up the live preview, and we use it as a signal for when to embed source maps.
      * When outside of the Sanity Studio we also support the Vercel Toolbar Visual Editing feature, which is only enabled in production when it's a Vercel Preview Deployment.
      */
-    stega = perspective === "previewDrafts" ||
-        process.env.VERCEL_ENV === "preview",
-}) {
+    const perspective =
+        draftMode().isEnabled && !rawPerspective ? "previewDrafts" : "published"
+    const stega =
+        perspective === "previewDrafts" || process.env.VERCEL_ENV === "preview"
+
     if (perspective === "previewDrafts") {
         return client.fetch(query, params, {
             stega,
@@ -49,6 +48,18 @@ export async function sanityFetch({
                 process.env.VERCEL_ENV === "preview"
                     ? 0
                     : revalidateTimeInSeconds,
+        },
+    })
+}
+
+// This one is used for the `published` perspective
+// For generateStaticParams
+export async function sanityFetchPublished({ query, params = {} }) {
+    return client.fetch(query, params, {
+        perspective: "published",
+        useCdn,
+        next: {
+            revalidate: revalidateTimeInSeconds,
         },
     })
 }

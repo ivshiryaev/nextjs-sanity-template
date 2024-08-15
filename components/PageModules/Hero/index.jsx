@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "framer-motion"
+
 import SanityImage from "@/components/SanityImage"
 import Section from "@/components/Section"
 import Text from "@/components/Text"
@@ -32,7 +36,7 @@ export default function Hero({ idx, ...module }) {
                     className="absolute hidden md:block max-h-full w-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
                 />
             )}
-            <div className="relative flex flex-col items-center gap-4 text-center md:gap-8">
+            <div className="relative flex flex-col items-center gap-4 text-center md:gap-6">
                 {eyebrow && <Text renderAs="eyebrow">{eyebrow}</Text>}
                 {title && (
                     <Text headingTag={headingTag} renderAs="hero">

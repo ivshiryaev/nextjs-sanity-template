@@ -1,21 +1,26 @@
 import PageModules from "@/components/PageModules"
 
 import { urlForImage } from "@/sanity/lib/image"
-import { sanityFetch } from "@/sanity/lib/fetch"
-import { PAGE_QUERY } from "@/sanity/lib/queries"
+import { sanityFetch, sanityFetchPublished } from "@/sanity/lib/fetch"
+import { PAGE_QUERY, PAGES_QUERY } from "@/sanity/lib/queries"
+
+import Loader from "@/components/Loader"
 
 import SwitchDraftMode from "@/components/SwitchDraftMode"
+import Link from "next/link"
 
 export async function generateStaticParams() {
-    const data = await sanityFetch({ query: PAGE_QUERY({ slug: "home" }) })
+    const data = await sanityFetchPublished({ query: PAGES_QUERY() })
     return data
 }
 
-export async function generateMetadata() {
-    const data = await sanityFetch({ query: PAGE_QUERY({ slug: "home" }) })
+export async function generateMetadata({ params }) {
+    const data = await sanityFetch({
+        query: PAGE_QUERY({ slug: params?.slug }),
+    })
 
     if (!data) {
-        console.error("No data found for home page")
+        console.error(`No data found for ${params?.slug} page`)
         return null
     }
 
@@ -30,7 +35,6 @@ export async function generateMetadata() {
         authors: [{ name: "Ivan Shyriaiev", url: "https://theshirya.xyz" }],
         creator: "Ivan Shyriaiev",
         publisher: "Ivan Shyriaiev",
-        metadataBase: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000",
         alternates: {
             canonical: "/",
         },
@@ -59,11 +63,13 @@ export async function generateMetadata() {
     }
 }
 
-export default async function Home() {
-    const data = await sanityFetch({ query: PAGE_QUERY({ slug: "home" }) })
+export default async function Page({ children, params }) {
+    const data = await sanityFetch({
+        query: PAGE_QUERY({ slug: params?.slug }),
+    })
 
     if (!data) {
-        console.error("No data found for home page")
+        console.error(`No data found for ${params?.slug} page`)
         return null
     }
 

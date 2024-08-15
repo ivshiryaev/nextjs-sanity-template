@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader"
 import Section from "@/components/Section"
 import Text from "@/components/Text"
 
@@ -9,10 +10,7 @@ export default function Loading() {
             useContainer
             className="min-h-screen flex justify-center items-center text-center gap-4 text-gray-500"
         >
-            <span className="animate-spin text-xl">
-                <AiOutlineLoading3Quarters />
-            </span>
-            <Text>Loading...</Text>
+            <Loader />
         </Section>
     )
 }

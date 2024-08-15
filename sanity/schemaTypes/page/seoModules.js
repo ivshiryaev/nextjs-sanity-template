@@ -54,6 +54,10 @@ export const seoModules = defineType({
     title: "SEO",
     description:
         "Search Engine Optimization. Information that helps search engines understand the content of the page.",
-    type: "document",
+    type: "object",
+    options: {
+        collapsible: true,
+        collapsed: true,
+    },
     fields: [title, bodyText, keywords, robots, openGraphImage],
 })

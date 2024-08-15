@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "framer-motion"
+
 import { twMerge } from "tailwind-merge"
 
 /**
@@ -11,7 +15,7 @@ import { twMerge } from "tailwind-merge"
  * @returns {JSX.Element} The rendered text component.
  */
 export default function Text({ headingTag, children, className, renderAs }) {
-    const HeadingTag = headingTag ? `${headingTag}` : "p"
+    const HeadingTag = headingTag ? `${headingTag}` : "div"
 
     let currentClassName
     switch (renderAs) {
@@ -33,7 +37,33 @@ export default function Text({ headingTag, children, className, renderAs }) {
         <HeadingTag
             className={twMerge(currentClassName, className ? className : null)}
         >
-            {children}
+            <AnimateText>{children}</AnimateText>
         </HeadingTag>
+    )
+}
+
+const STAGGER = 0.05
+
+function AnimateText({ children }) {
+    const splitWords = children.split(" ")
+    return (
+        // Word
+        <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+        >
+            {/* Letters */}
+            {splitWords.map((word, idx) => (
+                <motion.span
+                    key={idx}
+                    initial={{ opacity: 0, filter: "blur(10px)" }}
+                    whileInView={{ opacity: 1, filter: "blur(0px)" }}
+                    transition={{ duration: 0.5, delay: idx * STAGGER }}
+                >
+                    {word}{" "}
+                </motion.span>
+            ))}
+        </motion.span>
     )
 }

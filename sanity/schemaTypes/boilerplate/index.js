@@ -24,7 +24,11 @@ export const bodyText = defineField({
 export const image = defineType({
     name: "image",
     title: "Image",
-    type: "document",
+    type: "object",
+    options: {
+        collapsible: true,
+        collapsed: true,
+    },
     fields: [
         defineField({
             name: "mobileImage",
@@ -49,7 +53,11 @@ export const button = defineType({
     name: "button",
     title: "Button",
     description: "Call to action button",
-    type: "document",
+    type: "object",
+    options: {
+        collapsible: true,
+        collapsed: true,
+    },
     fields: [
         defineField({
             name: "buttonText",

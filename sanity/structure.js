@@ -12,7 +12,7 @@ function structure(S, context) {
             S.divider(),
             S.documentTypeListItem("page")
                 .id("pages")
-                .icon(MdOutlineInsertDriveFile),
+                .icon(MdOutlineInsertDriveFile)
         ])
 }
 

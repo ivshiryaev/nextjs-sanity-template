@@ -4,6 +4,8 @@ import CenteredText from "./CenteredText"
 import Services from "./Services"
 import FAQ from "./Faq"
 import Reviews from "./Reviews"
+import MovingCards from "./MovingCards"
+import SplineScene from "./SplineScene"
 
 export default function PageModules({ modules }) {
     if (!modules) {
@@ -25,8 +27,12 @@ export default function PageModules({ modules }) {
                 return <FAQ key={idx} idx={idx} {...module} />
             case "reviews":
                 return <Reviews key={idx} idx={idx} {...module} />
+            case "movingCards":
+                return <MovingCards key={idx} idx={idx} {...module} />
+            case "splineScene":
+                return <SplineScene key={idx} idx={idx} {...module} />
             default:
-                return <div>default</div>
+                return null
         }
     })
 }

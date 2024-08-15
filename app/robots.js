@@ -1,4 +1,4 @@
-const url = process.env.VERCEL_URL || "localhost:3000"
+const baseUrl = process.env.VERCEL_URL || "localhost:3000"
 
 export default function robots() {
     return {
@@ -7,6 +7,6 @@ export default function robots() {
             allow: "/",
             disallow: "/private/",
         },
-        sitemap: `https://${url}/sitemap.xml`,
+        sitemap: `https://${baseUrl}/sitemap.xml`,
     }
 }
