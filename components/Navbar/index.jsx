@@ -1,6 +1,6 @@
 "use server"
 
-import Navbar from "./Navbar"
+import { Navbar } from "./Navbar"
 
 import { sanityFetch } from "@/sanity/lib/fetch"
 import { WEBSITE_SETTINGS_QUERY } from "@/sanity/lib/queries"
