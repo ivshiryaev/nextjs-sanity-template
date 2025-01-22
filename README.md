@@ -21,3 +21,10 @@ A Next.js + Sanity CMS template for creating fully dynamic websites with an admi
 - sanity/: Sanity-related configurations and schemas.
 - api/: API routes for custom features like draft management.
 - lib/: Utility functions for shared logic.
+```
+
+## Screenshots
+![1](./github/images/[1].png)
+![2](./github/images/[2].png)
+![3](./github/images/[3].png)
+![4](./github/images/[4].png)
