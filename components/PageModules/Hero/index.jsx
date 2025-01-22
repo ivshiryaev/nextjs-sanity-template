@@ -1,7 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
-
 import SanityImage from "@/components/SanityImage"
 import Section from "@/components/Section"
 import Text from "@/components/Text"

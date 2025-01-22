@@ -2,7 +2,6 @@ import SanityImage from "@/components/SanityImage"
 import Section from "@/components/Section"
 import Text from "@/components/Text"
 import Link from "next/link"
-import Button from "@/components/Button"
 
 import { getReactIcon } from "@/lib/utils"
 
