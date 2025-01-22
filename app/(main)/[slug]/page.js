@@ -1,10 +1,12 @@
-import PageModules from "@/components/PageModules"
+import { PageModules } from "@/components/PageModules"
 
 import { urlForImage } from "@/sanity/lib/image"
 import { sanityFetch, sanityFetchPublished } from "@/sanity/lib/fetch"
 import { PAGE_QUERY, PAGES_QUERY } from "@/sanity/lib/queries"
 
 import SwitchDraftMode from "@/components/SwitchDraftMode"
+
+import { NotFoundPage } from "@/sections/NotFoundPage"
 
 export async function generateStaticParams() {
     const data = await sanityFetchPublished({ query: PAGES_QUERY() })
@@ -67,7 +69,7 @@ export default async function Page({ children, params }) {
 
     if (!data) {
         console.error(`No data found for ${params?.slug} page`)
-        return null
+        return <NotFoundPage />
     }
 
     return (

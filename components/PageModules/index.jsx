@@ -7,7 +7,7 @@ import Reviews from "./Reviews"
 import MovingCards from "./MovingCards"
 import SplineScene from "./SplineScene"
 
-export default function PageModules({ modules }) {
+export function PageModules({ modules }) {
     if (!modules) {
         throw new Error("No Page modules were provided.")
         return null

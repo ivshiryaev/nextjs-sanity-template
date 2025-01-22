@@ -1,4 +1,4 @@
-import PageModules from "@/components/PageModules"
+import { PageModules } from "@/components/PageModules"
 
 import { urlForImage } from "@/sanity/lib/image"
 import { sanityFetch } from "@/sanity/lib/fetch"
