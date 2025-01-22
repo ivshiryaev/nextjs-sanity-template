@@ -4,10 +4,7 @@ import { urlForImage } from "@/sanity/lib/image"
 import { sanityFetch, sanityFetchPublished } from "@/sanity/lib/fetch"
 import { PAGE_QUERY, PAGES_QUERY } from "@/sanity/lib/queries"
 
-import Loader from "@/components/Loader"
-
 import SwitchDraftMode from "@/components/SwitchDraftMode"
-import Link from "next/link"
 
 export async function generateStaticParams() {
     const data = await sanityFetchPublished({ query: PAGES_QUERY() })

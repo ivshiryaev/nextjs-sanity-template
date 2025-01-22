@@ -1,8 +1,5 @@
 import Loader from "@/components/Loader"
 import Section from "@/components/Section"
-import Text from "@/components/Text"
-
-import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 export default function Loading() {
     return (
