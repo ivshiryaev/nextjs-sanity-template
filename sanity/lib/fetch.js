@@ -52,8 +52,16 @@ export async function sanityFetch({ query, params = {}, rawPerspective }) {
     })
 }
 
-// This one is used for the `published` perspective
-// For generateStaticParams
+
+/**
+ * Fetches published data from Sanity.
+ * This one is used for the `published` perspective, used for generateStaticParams()
+ *
+ * @param {Object} options - The options for the fetch.
+ * @param {string} options.query - The GROQ query to execute.
+ * @param {Object} [options.params={}] - The parameters for the query.
+ * @returns {Promise<any>} The result of the fetch operation.
+ */
 export async function sanityFetchPublished({ query, params = {} }) {
     return client.fetch(query, params, {
         perspective: "published",
