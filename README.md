@@ -1,6 +1,6 @@
 # ivshiryaev-nextjs-sanity-template
 
-A Next.js + Sanity CMS template for creating fully dynamic websites with an admin panel for content management.
+This is a Next.js + Sanity CMS boilerplate that I use to build fully dynamic websites with an admin panel. It's a solid starting point, and I customize it to fit my clients' specific needs.
 
 ## Features
 - **Dynamic Admin Panel**: Manage, edit, preview, and delete content at `/admin`.
